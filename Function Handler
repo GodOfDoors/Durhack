@@ -1,0 +1,17 @@
+import numpy as np
+from PIL import Image as image
+import pygame
+from pygame import surfarray
+
+# Importing files from Repo
+import ImageToPixelArray as ITPA
+import ArrayVisualiser as AV
+
+# Getting the image to work on from the user
+ImageInput = input("Path of image:")
+ImageArray = ITPA.image_to_array(str(ImageInput))
+
+
+# Getting back the image
+# ImageOutput = AV.ImageUpdate()
+# !!!Need to create function ImageUpdate

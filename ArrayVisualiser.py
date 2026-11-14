@@ -2,6 +2,8 @@ import pygame
 import numpy as np
 from pygame import surfarray
 
+# Create a function to update the image
+
 # initializing Pygame
 pygame.init()
 

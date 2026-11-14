@@ -5,8 +5,11 @@ def image_to_array(Image_Name):
 
 # Opens the image as "image" file
     im = image.open(Image_Name)
+
 # Converts it to numpy array and returns
     return np.asarray(im)
 
-#If testing change this to the path of the test image used
-image_to_array("Test Image.jpg")
+
+
+# If testing change this to the path of the test image used
+# image_to_array("Test Image.jpg")
