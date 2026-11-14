@@ -12,6 +12,7 @@ ImageInput = input("Path of image:")
 ImageArray = ITPA.image_to_array(str(ImageInput))
 
 
+
 # Getting back the image
 # ImageOutput = AV.ImageUpdate()
 # !!!Need to create function ImageUpdate
