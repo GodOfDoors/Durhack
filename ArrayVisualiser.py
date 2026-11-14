@@ -8,7 +8,7 @@ from pygame import surfarray
 pygame.init()
 
 
-width, height = 400, 300
+width, height = 800, 600
 # initialize the test pixel array
 pixel_array = np.zeros((width, height, 3))
 pixel_array[:, :, 0] = np.linspace(0, 255, height)  # Green gradient
