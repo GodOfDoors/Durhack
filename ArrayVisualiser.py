@@ -61,7 +61,7 @@ convolution_grid = ui.InteractiveMatrix(250, 0, 200)
 
 # render UI
 def render_ui():
-    screen.fill((20, 20, 20))
+    screen_ui.fill((20, 20, 20))
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -86,6 +86,7 @@ temp = alterImageSizeToFitScreen(temp)
 running = True
 print("Starting Simulation")
 while running:
+    render_ui()
     print("Display")
     time.sleep(0.1)
 
