@@ -97,10 +97,7 @@ def Exit():
         if not np.any(drip_vec) == 0:
             temp = Drip.Drip(temp,drip_vec.get_vector[0],drip_vec.get_vector[1])
 
-        if not np.any(attraction_grid) == 0:
-            temp = PixelArrayRules.attraction(temp,attraction_grid.get_matrix)
-
-        if not np.any(convolution_grid) == 0:
+        if not convolution_grid == np.zeros(3,3):
             temp = PixelArrayRules.convolution(temp,convolution_grid.get_matrix)
 
         surfarray.blit_array(screen, temp)
