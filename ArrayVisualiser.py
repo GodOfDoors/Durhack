@@ -3,7 +3,7 @@ import numpy as np
 from pygame import surfarray
 import PixelArrayRules
 import time
-
+import Drip
 # Create a function to update the image
 
 # initializing Pygame
@@ -60,11 +60,13 @@ temp = alterImageSizeToFitScreen(temp)
 running = True
 print("Starting Simulation")
 while running:
+    print("Display")
     time.sleep(0.1)
 
-    Del = np.insert(PixelArrayRules.Radiate(150, 10, 3, 5, np.delete(temp, [True,False,True], 2)),0, 0, 2)
-    Del = np.insert(Del,2, 0, 2)
-    temp = temp + Del
+#    Del = np.insert(PixelArrayRules.Radiate(150, 10, 3, 5, np.delete(temp, [True,False,True], 2)),0, 0, 2)
+#    Del = np.insert(Del,2, 0, 2)
+#    temp = temp + Del
+    temp = Drip.Drip(temp,200,40)
     surfarray.blit_array(screen, temp)
     pygame.display.flip()
     for event in pygame.event.get():
