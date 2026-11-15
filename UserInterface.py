@@ -64,7 +64,7 @@ class Button():
 
 
 class BoolButton():
-    def __init__(self, x, y, width, height, buttonText='Button')
+    def __init__(self, x, y, width, height, buttonText='Button'):
         self.x = x
         self.y = y
         self.width = width
