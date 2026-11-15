@@ -241,10 +241,9 @@ class InteractiveVector:
         self.vector = vector
 
         unit = size / 8
-        self.TextBoxes = np.empty((3, 3), dtype=object)
-        for i in range(3):
-            for j in range(3):
-                self.TextBoxes[i] = TextBox(
+        self.TextBoxes = np.empty(len(vector), dtype=object)
+        for TextBox in TextBoxes:
+                TextBox = TextBox(
                     x + i * 3 * unit, y,
                     2 * unit, 2 * unit,
                     defaultText=str(vector[i]),
