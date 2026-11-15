@@ -9,7 +9,7 @@ def image_to_array(Image_Name):
 # Converts it to numpy array and returns
 # Deletes alpha value
     im = np.asarray(im)
-    return np.delete(im, [False,True,True,True], 2)
+    return np.delete(im, [False,False,False,True], 2)
 
 
 
