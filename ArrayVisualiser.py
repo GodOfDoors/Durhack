@@ -24,6 +24,34 @@ surfarray.blit_array(screen, pixel_array)
 # updates display
 pygame.display.flip()
 
+# Function to alter image size to fit (with black borders if necessary)
+# input image surface object (already loaded image)
+# width, height
+def alterImageSizeToFitScreen(image_surface):
+    img_height = image_surface.get_height()
+    img_width = image_surface.get_width()
+
+    # if image height bigger
+    if img_height > img_width:
+        scale_amount = img_height / height
+        image_surface = pygame.transform.scale_by(image_surface, (img_width / scale_amount, height))
+        start_draw_at = (width / 2) - (img_width - 2)   # centre the image
+        screen.blit(image_surface, (start_draw_at, 0))
+    # if image width bigger (or they the same)
+    else:
+        scale_amount = img_width / width
+        image_surface = pygame.transform.scale(image_surface, (width, img_height / scale_amount))
+        img_height = image_surface.get_height()
+        start_draw_at = (height / 2) - (img_height / 2)   # centre the image
+        screen.blit(image_surface, (0, start_draw_at))
+    pygame.display.update()
+    return image_surface
+
+# test image
+temp = pygame.image.load("Test Image.jpg")
+temp = alterImageSizeToFitScreen(temp)
+
+
 # allows user to exit
 running = True
 while running:
