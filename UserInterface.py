@@ -216,8 +216,6 @@ class InteractiveMatrix:
             for j in range(3):
                 self.matrix[i, j] = self.TextBoxes[i, j].get_value()
 
-        print(self.matrix)
-
     def handle_event(self, event):
         for i in range(3):
             for j in range(3):
