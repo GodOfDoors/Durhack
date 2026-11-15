@@ -90,18 +90,18 @@ def Exit():
     while running:
 
         if not np.any(radiate_vec) == 0:
-            Del = np.insert(PixelArrayRules.Radiate((radiate_vec[0]),(radiate_vec[1]),(radiate_vec[2]),(radiate_vec[3]), np.delete(temp, [False,True,True], 2)),1, 0, 2)
+            Del = np.insert(PixelArrayRules.Radiate((radiate_vec.get_vector[0]),(radiate_vec.get_vector[1]),(radiate_vec.get_vector[2]),(radiate_vec.get_vector[3]), np.delete(temp, [False,True,True], 2)),1, 0, 2)
             Del = np.insert(Del,1, 0, 2)
             temp = temp + Del
 
         if not np.any(drip_vec) == 0:
-            temp = Drip.Drip(temp,drip_vec[0],drip_vec[1])
+            temp = Drip.Drip(temp,drip_vec.get_vector[0],drip_vec.get_vector[1])
 
         if not np.any(attraction_grid) == 0:
-            temp = PixelArrayRules.attraction(temp,attraction_grid)
+            temp = PixelArrayRules.attraction(temp,attraction_grid.get_matrix)
 
         if not np.any(convolution_grid) == 0:
-            temp = PixelArrayRules.convolution(temp,convolution_grid)
+            temp = PixelArrayRules.convolution(temp,convolution_grid.get_matrix)
 
         surfarray.blit_array(screen, temp)
         pygame.display.flip()
