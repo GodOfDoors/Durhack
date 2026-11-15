@@ -264,7 +264,7 @@ class InteractiveVector:
                 self.TextBoxes[i].handle_event(event)
 
     def process(self):
-        for i in range(len)self.vector):
+        for i in range(len(self.vector)):
             self.TextBoxes[i].process()
         self.Button.process()
 
