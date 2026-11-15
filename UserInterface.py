@@ -211,7 +211,7 @@ class InteractiveMatrix:
                              6 * unit, 2 * unit,
                              'Commit', self.commit)
 
-    def commit(self):                      # real method, reachable as self.commit
+    def commit(self):                      
         for i in range(3):
             for j in range(3):
                 self.matrix[i, j] = self.TextBoxes[i, j].get_value()
@@ -228,4 +228,45 @@ class InteractiveMatrix:
             for j in range(3):
                 self.TextBoxes[i, j].process()
         self.Button.process()
+        
+    def get_matrix(self):
+    return self.matrix
 
+class InteractiveVector:
+    def __init__(self, x, y, size, comit_x, comit_y, vector=None):
+        if matrix is None:
+            matrix = np.zeros((3, 3))
+        self.x, self.y = x, y
+        self.comit_x, self.comit_y = comit_x, comit_y
+        self.vector = vector
+
+        unit = size / 8
+        self.TextBoxes = np.empty((3, 3), dtype=object)
+        for i in range(3):
+            for j in range(3):
+                self.TextBoxes[i] = TextBox(
+                    x + i * 3 * unit, y,
+                    2 * unit, 2 * unit,
+                    defaultText=str(vector[i]),
+                )
+
+        self.Button = Button(comit_x, comit_y,
+                             6 * unit, 2 * unit,
+                             'Commit', self.commit)
+
+    def commit(self):                      
+        for i in range(len(self.vector)):
+            self.vector[i] = self.TextBoxes[i].get_value()
+            
+
+    def handle_event(self, event):
+        for i in range(len(self.vector)):
+                self.TextBoxes[i].handle_event(event)
+
+    def process(self):
+        for i in range(len)self.vector):
+            self.TextBoxes[i].process()
+        self.Button.process()
+
+    def get_vector(self):
+        return self.vector
