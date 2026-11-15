@@ -56,8 +56,8 @@ def alterImageSizeToFitScreen(image_surface):
     return surf_array
 
 # define UI interface
-attraction_grid = InteractiveMatrix(0, 0, 200)
-convolution_grid = InteractiveMatrix(250, 0, 200)
+attraction_grid = ui.InteractiveMatrix(0, 0, 200)
+convolution_grid = ui.InteractiveMatrix(250, 0, 200)
 
 # render UI
 def render_ui():
