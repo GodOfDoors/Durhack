@@ -60,8 +60,9 @@ temp = alterImageSizeToFitScreen(temp)
 running = True
 print("Starting Simulation")
 while running:
-    time.sleep(1)
-    Del = np.insert(PixelArrayRules.Radiate(150, 50, 2, 1, np.delete(temp, [True,False,True], 2)),0, 0, 2)
+    time.sleep(0.1)
+
+    Del = np.insert(PixelArrayRules.Radiate(150, 10, 3, 5, np.delete(temp, [True,False,True], 2)),0, 0, 2)
     Del = np.insert(Del,2, 0, 2)
     temp = temp + Del
     surfarray.blit_array(screen, temp)

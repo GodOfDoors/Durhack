@@ -83,6 +83,8 @@ def Radiate(Threshold, Levels, RadMax, RadChange, Array):
             CirclePixels = int(np.sqrt(RadMaxSpec**2-(u)**2))
             Start =(y-CirclePixels)
             End = (y+CirclePixels)
+            if (Array[x-u][Start:End+1]-(OutArray[x-u][Start:End+1] + RadChange)).any() < 0:
+                print("FUCK",x,y)
             OutArray[x-u][Start:End+1] += RadChange
             OutArray[x][y] += -(2*CirclePixels+1)*RadChange
 
