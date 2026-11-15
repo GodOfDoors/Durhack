@@ -27,8 +27,6 @@ screen_ui = pygame.display.set_mode((640, 480))
 screen_ui.fill((20, 20, 20))
 
 
-
-
 # map pixel array to screen
 # surfarray.blit_array(screen, pixel_array)
 # updates display
@@ -60,7 +58,6 @@ def alterImageSizeToFitScreen(image_surface):
     return surf_array
 
 
-
 # render UI
 def render_ui():
     screen_ui.fill((20, 20, 20))
@@ -83,11 +80,6 @@ def render_ui():
 global temp 
 temp = pygame.image.load("Test Image.jpg")
 temp = alterImageSizeToFitScreen(temp)
-
-
-
-
-
 
 
 def Exit():
@@ -114,6 +106,7 @@ def Exit():
 attraction_grid = ui.InteractiveMatrix(0, 0, 200)
 convolution_grid = ui.InteractiveMatrix(250, 0, 200)
 run_button = ui.Button(100,50,50,25,"Run",Exit,True)
+attraction_button = ui.Button(30, 290, 60, 40, "Attraction")
 
 
 # allows user to exit
