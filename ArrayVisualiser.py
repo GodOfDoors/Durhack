@@ -22,7 +22,7 @@ pixel_array[:, :, 2] = np.linspace(0, 255, height)  # Green gradient
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pygame display")
 
-screen_ui = pygame.display.set_more((640, 480))
+screen_ui = pygame.display.set_mode((640, 480))
 screen.fill((20, 20, 20))
 
 # map pixel array to screen
