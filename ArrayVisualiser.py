@@ -23,7 +23,7 @@ screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pygame display")
 
 screen_ui = pygame.display.set_mode((640, 480))
-screen.fill((20, 20, 20))
+screen_ui.fill((20, 20, 20))
 
 # map pixel array to screen
 surfarray.blit_array(screen, pixel_array)
