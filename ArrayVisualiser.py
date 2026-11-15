@@ -103,8 +103,8 @@ def Exit():
 
 
 # define UI interface
-attraction_grid = ui.InteractiveMatrix(0, 0, 200)
-convolution_grid = ui.InteractiveMatrix(250, 0, 200)
+attraction_grid = ui.InteractiveMatrix(30, 30, 210)
+convolution_grid = ui.InteractiveMatrix(360, 30, 210)
 run_button = ui.Button(550,360,60,40,"Run",Exit,True)
 attraction_button = ui.Toggle(30, 290, 60, 40, "Attraction")
 attraction_button = ui.Toggle(30, 390, 60, 40, "Attraction")
