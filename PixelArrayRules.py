@@ -66,10 +66,10 @@ def Radiate(Threshold, Levels, RadMax, RadChange, Array):
 # Iterates through those pixels and finds their radii
 
 
-
-    for i in range(len(np.nonzero(PixThresh)[0])):
-        x = np.nonzero(PixThresh)[0][i]
-        y = np.nonzero(PixThresh)[1][i]
+    NonZeroIndixes = np.nonzero(PixThresh)
+    for i in range(len(NonZeroIndixes[0])):
+        x = NonZeroIndixes[0][i]
+        y = NonZeroIndixes[1][i]
         RadMaxSpec = int(np.ceil((Array[x][y][0] - Threshold)/Levels))
 #        print(i,x,y,RadMax,RadMaxSpec)
         if RadMaxSpec > RadMax:
@@ -86,7 +86,7 @@ def Radiate(Threshold, Levels, RadMax, RadChange, Array):
             OutArray[x-u][Start:End+1] += RadChange
             OutArray[x][y] += -(2*CirclePixels+1)*RadChange
 
-
+    print("Returning")
     return OutArray
 # Returns the map that should be added to the array to produce the new frame
 

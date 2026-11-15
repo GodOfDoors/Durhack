@@ -2,6 +2,7 @@ import pygame
 import numpy as np
 from pygame import surfarray
 import PixelArrayRules
+import time
 
 # Create a function to update the image
 
@@ -9,7 +10,7 @@ import PixelArrayRules
 pygame.init()
 
 
-width, height = 200, 150
+width, height = 800, 600
 # initialize the test pixel array
 pixel_array = np.zeros((width, height, 3))
 pixel_array[:, :, 0] = np.linspace(0, 255, height)  # Green gradient
@@ -57,8 +58,10 @@ temp = alterImageSizeToFitScreen(temp)
 
 # allows user to exit
 running = True
+print("Starting Simulation")
 while running:
-    Del = np.insert(PixelArrayRules.Radiate(150, 10, 4, 5, np.delete(temp, [True,False,True], 2)),0, 0, 2)
+    time.sleep(1)
+    Del = np.insert(PixelArrayRules.Radiate(150, 50, 2, 1, np.delete(temp, [True,False,True], 2)),0, 0, 2)
     Del = np.insert(Del,2, 0, 2)
     temp = temp + Del
     surfarray.blit_array(screen, temp)
