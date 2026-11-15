@@ -88,13 +88,22 @@ def Exit():
     screen = pygame.display.set_mode((800, 600))
     running = True
     while running:
-#    Del = np.insert(PixelArrayRules.Radiate(150, 10, 3, 5, np.delete(temp, [True,False,True], 2)),0, 0, 2)
-#    Del = np.insert(Del,2, 0, 2)
-#    temp = temp + Del
-        print(screen,temp)
-        temp = Drip.Drip(temp,200,40)
+
+        if not np.any(radiate_vec) == 0:
+            Del = np.insert(PixelArrayRules.Radiate((radiate_vec[0]),(radiate_vec[1]),(radiate_vec[2]),(radiate_vec[3]), np.delete(temp, [False,True,True], 2)),1, 0, 2)
+            Del = np.insert(Del,1, 0, 2)
+            temp = temp + Del
+
+        if not np.any(drip_vec) == 0:
+            temp = Drip.Drip(temp,drip_vec[0],drip_vec[1])
+
+        if not np.any(attraction_grid) == 0:
+            temp = PixelArrayRules.attraction(temp,attraction_grid)
+
+        if not np.any(convolution_grid) == 0:
+            temp = PixelArrayRules.convolution(temp,convolution_grid)
+
         surfarray.blit_array(screen, temp)
-        print("YAY")
         pygame.display.flip()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
