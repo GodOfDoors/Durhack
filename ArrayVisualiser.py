@@ -45,14 +45,13 @@ def alterImageSizeToFitScreen(image_surface):
         start_draw_at = (height / 2) - (img_height / 2)   # centre the image
         screen.blit(image_surface, (0, start_draw_at))
 
-    px_array = pygame.PixelArray(image_surface)
-    pygame.display.update()
-    return px_array
+    surf_array = pygame.surfarray.array3d(image_surface)
+    pygame.display.flip()
+    return surf_array
 
 # test image
 temp = pygame.image.load("Test Image.jpg")
 temp = alterImageSizeToFitScreen(temp)
-
 
 # allows user to exit
 running = True
