@@ -239,11 +239,12 @@ class InteractiveVector:
         self.x, self.y = x, y
         self.comit_x, self.comit_y = comit_x, comit_y
         self.vector = vector
+        self.len = len(vector)
 
         unit = size / 8
-        self.TextBoxes = np.empty(len(vector), dtype=object)
-        for TextBox in self.TextBoxes:
-                TextBox = TextBox(
+        self.TextBoxes = np.empty(self.len, dtype=object)
+        for i in range(self.len):
+                self.TextBoxes[i] = TextBox(
                     x + i * 3 * unit, y,
                     2 * unit, 2 * unit,
                     defaultText=str(vector[i]),
@@ -254,16 +255,16 @@ class InteractiveVector:
                              'Commit', self.commit)
 
     def commit(self):                      
-        for i in range(len(self.vector)):
+        for i in range(self.len):
             self.vector[i] = self.TextBoxes[i].get_value()
             
 
     def handle_event(self, event):
-        for i in range(len(self.vector)):
+        for i in range(self.len):
                 self.TextBoxes[i].handle_event(event)
 
     def process(self):
-        for i in range(len(self.vector)):
+        for i in range(self.len):
             self.TextBoxes[i].process()
         self.Button.process()
 
