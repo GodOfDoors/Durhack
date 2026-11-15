@@ -234,17 +234,16 @@ class InteractiveMatrix:
 
 class InteractiveVector:
     def __init__(self, x, y, size, comit_x, comit_y, vector=None):
-        if matrix is None:
-            matrix = np.zeros((3, 3))
+        if vector is None:
+            vector = np.zeros(4)
         self.x, self.y = x, y
         self.comit_x, self.comit_y = comit_x, comit_y
         self.vector = vector
 
         unit = size / 8
-        self.TextBoxes = np.empty((3, 3), dtype=object)
-        for i in range(3):
-            for j in range(3):
-                self.TextBoxes[i] = TextBox(
+        self.TextBoxes = np.empty(len(vector), dtype=object)
+        for TextBox in TextBoxes:
+                TextBox = TextBox(
                     x + i * 3 * unit, y,
                     2 * unit, 2 * unit,
                     defaultText=str(vector[i]),
