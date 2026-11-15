@@ -64,15 +64,16 @@ class Button():
         screen.blit(self.buttonSurface, self.buttonRect)
         
 class Toggle:
-    def __init__(self, x, y, width, height, buttonText='Toggle'):
+    def __init__(self, x, y, width, height, buttonText='Button'):
         self.state = False          
-        self.held = False           
+        self.held = False        
         self.hovered = False
 
         self.fillColors = {
             'normal':  '#ffffff',
-            'hover':   '#666666',
+            'hover':   '#999999',
             'pressed': '#333333',
+            'on':      '#4caf50',   
         }
 
         self.buttonSurface = pygame.Surface((width, height))
@@ -88,7 +89,7 @@ class Toggle:
                 self.held = True
         elif event.type == pygame.MOUSEBUTTONUP and event.button == 1:
             if self.held and self.buttonRect.collidepoint(event.pos):
-                self.state = not self.state   # toggle only on valid click
+                self.state = not self.state
             self.held = False
 
     def process(self):
@@ -96,6 +97,8 @@ class Toggle:
 
         if self.held:
             color = self.fillColors['pressed']
+        elif self.state:
+            color = self.fillColors['on']         
         elif self.hovered:
             color = self.fillColors['hover']
         else:
