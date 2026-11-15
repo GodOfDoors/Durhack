@@ -20,6 +20,9 @@ def attraction(pixel_array, attraction_mat):
     The function implements the movement of a channel value symmetrially, so if a channel value
     moves, it is subtracted from the origin pixel's channel and added to the destination pixel's
     channel."""
+    width = len(pixel_array)
+    height = len(pixel_array[0])
+    
     delta = np.zeros_like(pixel_array)
     for x in range(width - 1):
         for y in range(height - 1):
@@ -36,6 +39,9 @@ def attraction(pixel_array, attraction_mat):
 
 def convolution(pixel_array, convolution_mat):
     """Convolutes over all channels in pixel_array as defined by convolution_mat."""
+    width = len(pixel_array)
+    height = len(pixel_array[0])
+
     new_pixel_array = np.zeros_like(pixel_array)
     for x in range(0, width):
         for y in range(0, height):
@@ -46,9 +52,6 @@ def convolution(pixel_array, convolution_mat):
                     except IndexError:
                         pass
     return new_pixel_array
-
-
-
 
 # Radiation causes a decay to nearby pixels after a threshold value of colour intensity is reached.
 
