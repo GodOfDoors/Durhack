@@ -230,7 +230,7 @@ class InteractiveMatrix:
         self.Button.process()
         
     def get_matrix(self):
-    return self.matrix
+        return self.matrix
 
 class InteractiveVector:
     def __init__(self, x, y, size, comit_x, comit_y, vector=None):
