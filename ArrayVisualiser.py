@@ -34,18 +34,20 @@ def alterImageSizeToFitScreen(image_surface):
     # if image height bigger
     if img_height > img_width:
         scale_amount = img_height / height
-        image_surface = pygame.transform.scale_by(image_surface, (img_width / scale_amount, height))
+        image_surface = pygame.transform.scale_by(image_surface, (width, height))
         start_draw_at = (width / 2) - (img_width - 2)   # centre the image
         screen.blit(image_surface, (start_draw_at, 0))
     # if image width bigger (or they the same)
     else:
         scale_amount = img_width / width
-        image_surface = pygame.transform.scale(image_surface, (width, img_height / scale_amount))
+        image_surface = pygame.transform.scale(image_surface, (width, height))
         img_height = image_surface.get_height()
         start_draw_at = (height / 2) - (img_height / 2)   # centre the image
         screen.blit(image_surface, (0, start_draw_at))
+
+    px_array = pygame.PixelArray(image_surface)
     pygame.display.update()
-    return image_surface
+    return px_array
 
 # test image
 temp = pygame.image.load("Test Image.jpg")
