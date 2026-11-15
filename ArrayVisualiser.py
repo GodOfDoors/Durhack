@@ -103,16 +103,11 @@ def Exit():
 
 
 # define UI interface
-attraction_grid = ui.InteractiveMatrix(30, 30, 210)
-convolution_grid = ui.InteractiveMatrix(360, 30, 210)
+attraction_grid = ui.InteractiveMatrix(30, 30, 200)
+convolution_grid = ui.InteractiveMatrix(360, 30, 200)
 run_button = ui.Button(550,360,60,40,"Run",Exit,True)
-attraction_button = ui.Toggle(30, 290, 60, 40, "Attraction")
-attraction_button = ui.Toggle(30, 390, 60, 40, "Attraction")
-attraction_button = ui.Toggle(220, 290, 60, 40, "Attraction")
-attraction_button = ui.Toggle(220, 390, 60, 40, "Attraction")
-attraction_button = ui.Toggle(360, 290, 60, 40, "Attraction")
-attraction_button = ui.Toggle(360, 390, 60, 40, "Attraction")
-
+radiate_vec = ui.InteractiveVector(30, 290, 210, 220, 290, np.zeros(4))
+drip_vec = ui.InteractiveVector(30, 390, 210, 220, 390, np.zeros(2))
 # allows user to exit
 running = True
 condition = True

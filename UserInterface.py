@@ -230,7 +230,7 @@ class InteractiveMatrix:
         self.Button.process()
         
     def get_matrix(self):
-    return self.matrix
+        return self.matrix
 
 class InteractiveVector:
     def __init__(self, x, y, size, comit_x, comit_y, vector=None):
@@ -264,7 +264,7 @@ class InteractiveVector:
                 self.TextBoxes[i].handle_event(event)
 
     def process(self):
-        for i in range(len)self.vector):
+        for i in range(len(self.vector)):
             self.TextBoxes[i].process()
         self.Button.process()
 
