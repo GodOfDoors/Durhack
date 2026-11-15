@@ -1,6 +1,7 @@
 import pygame
 import numpy as np
 from pygame import surfarray
+import PixelArrayRules
 
 # Create a function to update the image
 
@@ -8,7 +9,7 @@ from pygame import surfarray
 pygame.init()
 
 
-width, height = 800, 600
+width, height = 200, 150
 # initialize the test pixel array
 pixel_array = np.zeros((width, height, 3))
 pixel_array[:, :, 0] = np.linspace(0, 255, height)  # Green gradient
@@ -53,9 +54,15 @@ def alterImageSizeToFitScreen(image_surface):
 temp = pygame.image.load("Test Image.jpg")
 temp = alterImageSizeToFitScreen(temp)
 
+
 # allows user to exit
 running = True
 while running:
+    Del = np.insert(PixelArrayRules.Radiate(150, 10, 4, 5, np.delete(temp, [True,False,True], 2)),0, 0, 2)
+    Del = np.insert(Del,2, 0, 2)
+    temp = temp + Del
+    surfarray.blit_array(screen, temp)
+    pygame.display.flip()
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False

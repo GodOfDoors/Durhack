@@ -59,8 +59,8 @@ def convolution(pixel_array, convolution_mat):
 def Radiate(Threshold, Levels, RadMax, RadChange, Array):
 # The array to return later
     OutArray = np.zeros(Array.shape)
-    Height = (Array.shape)[0]
-    Width = (Array.shape)[1]
+    Width = (Array.shape)[0]
+    Height = (Array.shape)[1]
 # Pixels we're looking at
     PixThresh = Array > Threshold
 # Iterates through those pixels and finds their radii
@@ -79,12 +79,12 @@ def Radiate(Threshold, Levels, RadMax, RadChange, Array):
         if RadMaxSpec+y+1 > Height or y-RadMaxSpec < 0:
             continue
 # Iterates through affected pixels and adds their effect
-        for u in range(-RadMaxSpec, RadMaxSpec):
+        for u in range(-RadMaxSpec, RadMaxSpec+1):
             CirclePixels = int(np.sqrt(RadMaxSpec**2-(u)**2))
             Start =(y-CirclePixels)
             End = (y+CirclePixels)
-            OutArray[x-(u)][Start:End] += RadChange
-            OutArray[u+x][y] += -(2*CirclePixels+1)*RadChange
+            OutArray[x-u][Start:End+1] += RadChange
+            OutArray[x][y] += -(2*CirclePixels+1)*RadChange
 
 
     return OutArray
