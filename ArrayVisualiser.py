@@ -4,6 +4,7 @@ from pygame import surfarray
 import PixelArrayRules
 import time
 import Drip
+import UserInterface as ui
 # Create a function to update the image
 
 # initializing Pygame
@@ -20,6 +21,9 @@ pixel_array[:, :, 2] = np.linspace(0, 255, height)  # Green gradient
 # initialize the Pygame display
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pygame display")
+
+screen_ui = pygame.display.set_more((640, 480))
+screen.fill((20, 20, 20))
 
 # map pixel array to screen
 surfarray.blit_array(screen, pixel_array)
@@ -50,6 +54,28 @@ def alterImageSizeToFitScreen(image_surface):
     surf_array = pygame.surfarray.array3d(image_surface)
     pygame.display.flip()
     return surf_array
+
+# define UI interface
+attraction_grid = InteractiveMatrix(0, 0, 200)
+convolution_grid = InteractiveMatrix(250, 0, 200)
+
+# render UI
+def render_ui():
+    screen.fill((20, 20, 20))
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+        for object in objects:
+            if hasattr(object, 'handle_event'):
+                object.handle_event(event)
+
+    for object in objects:
+        object.process()
+
+    pygame.display.flip()
+
 
 # test image
 temp = pygame.image.load("Test Image.jpg")
